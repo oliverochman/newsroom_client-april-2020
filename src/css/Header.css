@@ -12,3 +12,6 @@ h6 {
 p {
   font-family: "EB Garamond", serif;
 }
+.ui.centered.divided.three.column.grid {
+  background-color: #409d9b;
+}

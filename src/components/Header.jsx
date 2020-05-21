@@ -1,10 +1,11 @@
-import React from 'react'
+import React from "react";
+import { Grid } from "semantic-ui-react";
 
 const Header = () => {
   return (
-    <div>
+    <Grid columns={3} divided centered>
       <h1 id="header">Daily News Sense</h1>
-    </div>
-  )
-}
-export default Header
+    </Grid>
+  );
+};
+export default Header;
