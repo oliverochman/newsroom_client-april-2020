@@ -3,13 +3,10 @@ describe("visitor can view all listed articles", () => {
     cy.server();
     cy.route({
       method: "GET",
-      url: "http://localhost:3000/api/v1/articles",
+      url: "http://localhost:3000/api/articles",
       response: "fixture:articleList.json",
     });
     cy.visit("/");
-  });
-  it("header is shown", () => {
-    cy.get("#header");
   });
   it("articles is shown", () => {
     cy.get("#article-1").should("contain", "title 1");

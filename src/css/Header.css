@@ -8,10 +8,12 @@ h4,
 h5,
 h6 {
   font-family: "Quattrocento", serif;
+  color: white;
 }
 p {
   font-family: "EB Garamond", serif;
 }
 .ui.centered.divided.three.column.grid {
   background-color: #409d9b;
+  padding: 20px;
 }
