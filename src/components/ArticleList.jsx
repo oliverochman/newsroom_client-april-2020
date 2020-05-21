@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Placeholder } from 'semantic-ui-react';
 
 export default class ArticleList extends Component {
   state = {
@@ -18,9 +19,11 @@ export default class ArticleList extends Component {
     let articleslist = this.state.articleList.map((article) => {
       return (
         <>
-          <div key={article.id} id={"article-" + article.id}>
-            {article.title}
-          </div>
+          <Placeholder style={{ height: 150, width: 150 }}
+          key={article.id} id={"article-" + article.id}>
+    <Placeholder.Image/>
+    <h5>{article.title}</h5>
+  </Placeholder>
         </>
       );
     });
