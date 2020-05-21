@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
+import "../css/Header.css"
 
 const Header = () => {
   return (
