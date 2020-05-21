@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Placeholder } from 'semantic-ui-react';
+import { Placeholder, Grid } from "semantic-ui-react";
 
 export default class ArticleList extends Component {
   state = {
@@ -18,15 +18,22 @@ export default class ArticleList extends Component {
   render() {
     let articleslist = this.state.articleList.map((article) => {
       return (
-        <>
-          <Placeholder style={{ height: 150, width: 150 }}
-          key={article.id} id={"article-" + article.id}>
-    <Placeholder.Image/>
-    <h5>{article.title}</h5>
-  </Placeholder>
-        </>
+        <Grid.Row width={3} centered>
+          <Placeholder
+            style={{ height: 250, width: 400 }}
+            key={article.id}
+            id={"article-" + article.id}
+          >
+            <Placeholder.Image />
+            <h5 style={{ textAlign: "center" }}>{article.title}</h5>
+          </Placeholder>
+        </Grid.Row>
       );
     });
-    return <div>{articleslist}</div>;
+    return (
+      <Grid columns={3} divided centered>
+        {articleslist}
+      </Grid>
+    );
   }
 }
