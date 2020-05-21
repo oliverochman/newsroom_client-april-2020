@@ -12,7 +12,7 @@ describe("visitor can view all listed articles", () => {
     cy.get("#header");
   });
   it("articles is shown", () => {
-    cy.get("#title-article-1").should("contain", "title1");
-    cy.get("#title-article-2").should("contain", "title2");
+    cy.get("#article-1").should("contain", "title1");
+    cy.get("#article-2").should("contain", "title2");
   });
 });
