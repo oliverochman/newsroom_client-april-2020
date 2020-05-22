@@ -11,6 +11,5 @@ describe("visitor can view all listed articles", () => {
   it("articles is shown", () => {
     cy.get("#article-1").should("contain", "title 1");
     cy.get("#article-2").should("contain", "title 2");
-  });
-  
+  }); 
 });

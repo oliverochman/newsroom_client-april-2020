@@ -9,17 +9,17 @@ describe("visitor can read a specific article", () => {
     cy.route({
       method: "GET",
       url: "http://localhost:3000/api/articles/1",
-      response: "fixture:article.json",
+      response: "fixture:single_article.json",
     });
     cy.visit("/");
-  });
-
-  it("article list is displayed", () => {
-    cy.get("#article-1").should("contain", "title 1").click();
+    cy.get("#article-1").within(() => {
+      cy.get("#article-title").click();
+    })
   });
 
   it("article is displayed", () => {
     cy.get("#article-1-title").should("contain", "Title 1");
     cy.get("#article-1-body").should("contain", "Lorem ipsum");
+    cy.get("#article-1").should("not.exist")
   });
 });
