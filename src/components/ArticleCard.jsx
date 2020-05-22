@@ -1,25 +1,25 @@
 import React from "react";
 import { Placeholder, Grid } from "semantic-ui-react";
-import Axios from "axios";
-
-const chooseArticle = async (id) => {
-  let response = await Axios.get(`/articles/${id}`);
-  let singleArticle = response.data.article;
-  debugger;
-  console.log(response);
-};
+import { Link } from 'react-router-dom';
 
 const ArticleCard = ({ article }) => {
   return (
     <Grid.Row width={3} centered>
       <Placeholder
-        onClick={() => chooseArticle(article.id)}
         style={{ height: 250, width: 400 }}
         key={article.id}
         id={"article-" + article.id}
       >
         <Placeholder.Image />
-        <h5 style={{ textAlign: "center" }}>{article.title}</h5>
+
+        <Link
+          to={{
+            pathname: `/article/${article.id}`
+          }}
+          
+        > 
+          <h5 id="article-title" style={{ textAlign: "center" }}>{article.title}</h5>
+        </Link>
       </Placeholder>
     </Grid.Row>
   );
