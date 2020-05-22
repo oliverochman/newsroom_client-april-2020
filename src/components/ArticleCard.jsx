@@ -4,6 +4,7 @@ import Axios from "axios";
 
 const chooseArticle = async (id) => {
   let response = await Axios.get(`/articles/${id}`);
+  let singleArticle = response.data.article;
   debugger;
   console.log(response);
 };
