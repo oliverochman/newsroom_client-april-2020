@@ -1,17 +1,29 @@
 describe('visitor can read a specific article', () => {
-  beforeEach(() => {
+  before(() => {
     cy.server();
     cy.route({
       method: "GET",
       url: "http://localhost:3000/api/articles",
-      response: "fixture:specific_article.json",
+      response: "fixture:article_list.json",
     });
-    cy.visit("/article/");
+    cy.visit("/");
   });
-  it("article is displayed", () => {
-    cy.get("#article-1").should("contain", "Title 1");
-    cy.get("#article-1").should("contain", "Lorem ipsum")
-   
+
+  it("article list is displayed", () => {
+    cy.get("#article-1").should("contain", "title 1").click();
+  });
+
+  it( 'article is displayed', () => {
+    before(() => {
+      cy.route({
+        method: "GET",
+        url: "http://localhost:3000/api/articles/1",
+        response: "fixture:article_list.json",
+      });
+      cy.visit("/");
+    })
+    // cy.get("#article-1-title").should("contain", "Title 1")
+    // cy.get("#article-1-body").should("contain", "Lorem ipsum")
   });
   
   

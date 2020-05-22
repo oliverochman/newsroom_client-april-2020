@@ -7,16 +7,15 @@ import {
 } from 'react-router-dom';
 import ArticleList from "./components/ArticleList";
 import Header from "./components/Header";
-import SpecificArticle from "./components/SpecificArticle";
 
 function App() {
   return (
     <>
       <Header />
-      <Switch>
+      {/* <Switch>
             <Route exact path = "/" component = {ArticleList}></Route>
             <Route exact path = "/article" component = {SpecificArticle}></Route>
-        </Switch>
+        </Switch> */}
       <ArticleList />
     </>
   );
