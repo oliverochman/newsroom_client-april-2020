@@ -1,5 +1,7 @@
 import React from 'react'
 import { Placeholder, Grid } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+
 
 
 const ArticleCard = ({ article}) => {
@@ -11,7 +13,7 @@ const ArticleCard = ({ article}) => {
           id={"article-" + article.id}
         >
           <Placeholder.Image />
-          <h5 style={{ textAlign: "center" }}>{article.title}</h5>
+         <h5 style={{ textAlign: "center" }}> <Link to={`/article/${article.id}`}>{article.title}</Link></h5>
         </Placeholder>
       </Grid.Row>
   )
