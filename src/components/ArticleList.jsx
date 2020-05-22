@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Placeholder, Grid } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
+import ArticleCard from "../components/ArticleCard"
 
 const ArticleList = () => {
   const [articleList, setArticleList] = useState([]);
-  const [message] = useState();
+  
 
   useEffect(() => {
     const fetchArticleList = async () => {
@@ -18,25 +19,19 @@ const ArticleList = () => {
     fetchArticleList();
   }, []);
 
-  let articleslist = articleList.map((article) => {
+  let articleCards = articleList.map((article) => {
     return (
-      <Grid.Row width={3} centered>
-        <Placeholder
-          style={{ height: 250, width: 400 }}
-          key={article.id}
-          id={"article-" + article.id}
-        >
-          <Placeholder.Image />
-          <h5 style={{ textAlign: "center" }}>{article.title}</h5>
-        </Placeholder>
-      </Grid.Row>
+      <ArticleCard
+        article={article}
+      />
     );
+   
   });
 
   return (
     <div>
       <Grid columns={3} divided centered>
-        {articleslist}
+        {articleCards}
       </Grid>
     </div>
   );
