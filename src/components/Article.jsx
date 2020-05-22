@@ -1,7 +1,7 @@
 import React from 'react'
 import { Placeholder, Grid } from "semantic-ui-react";
 
-const SpecificArticle = ({ article }) => {
+const Article = ({ article }) => {
   return (
     <>
     <Grid.Row width={3} centered>
@@ -22,4 +22,4 @@ const SpecificArticle = ({ article }) => {
   )
 }
 
-export default SpecificArticle
+export default Article

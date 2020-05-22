@@ -23,6 +23,7 @@ const ArticleList = () => {
     return (
       <ArticleCard
         article={article}
+
       />
     );
    
