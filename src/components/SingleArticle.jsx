@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Placeholder, Grid, Container } from "semantic-ui-react";
-import axios from 'axios';
-import Ads1 from './Ads1'
+import axios from "axios";
+import Ad from "./Ad";
 
 const SingleArticle = (props) => {
-  const [article, setArticle] = useState({})
+  const [article, setArticle] = useState({});
 
   useEffect(() => {
     const chooseArticle = async () => {
       let response = await axios.get(`/articles/${props.match.params.id}`);
       setArticle(response.data.article);
     };
-    chooseArticle()
-  }, [])
+    chooseArticle();
+  }, []);
 
   return (
-    <Container align="center" style={{paddingTop: "45px", width: "55%"}}>
+    <Container align="center" style={{ paddingTop: "45px", width: "55%" }}>
       <Grid stretched>
         <Grid.Row centered>
           <Placeholder
@@ -28,12 +28,16 @@ const SingleArticle = (props) => {
           </Placeholder>
         </Grid.Row>
         <Grid.Row centered>
-            <p key={article.id} id={"article-" + article.id + "-body"} style={{ textAlign: "left" }}>
-              {article.body}
-            </p>
+          <p
+            key={article.id}
+            id={"article-" + article.id + "-body"}
+            style={{ textAlign: "left" }}
+          >
+            {article.body}
+          </p>
         </Grid.Row>
         <Grid.Row centered>
-          <Ads1/>
+          <Ad type={0} />
         </Grid.Row>
       </Grid>
     </Container>
