@@ -17,3 +17,7 @@ p {
   background-color: #409d9b;
   padding: 20px;
 }
+a.active{
+  color: aliceblue;
+  font-family: "Quattrocento", serif;
+}
