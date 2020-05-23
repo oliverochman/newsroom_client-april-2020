@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Grid } from "semantic-ui-react";
 import ArticleCard from "../components/ArticleCard";
-import Ads1 from "../components/Ads1";
-import Ads2 from "../components/Ads2";
+import Ad from "./Ad";
 
 const ArticleList = () => {
   const [articleList, setArticleList] = useState([]);
@@ -27,9 +26,9 @@ const ArticleList = () => {
   return (
     <div>
       <Grid columns={3} divided centered>
-        <Ads1 />
+        <Ad type={0} />
         {articleCards}
-        <Ads2 />
+        <Ad type={1} />
       </Grid>
     </div>
   );
