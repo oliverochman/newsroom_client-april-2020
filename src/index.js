@@ -5,6 +5,8 @@ import * as serviceWorker from "./serviceWorker";
 import "semantic-ui-css/semantic.min.css";
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
+import './css/Header.css'
+
 
 
 axios.defaults.baseURL = "http://localhost:3000/api";
