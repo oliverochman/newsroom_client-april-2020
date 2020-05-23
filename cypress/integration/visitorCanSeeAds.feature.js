@@ -8,33 +8,43 @@ describe("Visitor can see ads", () => {
     });
     cy.visit("/");
   });
-  it("on front page ad1", () => {
-    cy.get("#ad-1").should("be.visible");
-    cy.get("#ad-1")
-      .should("have.attr", "href")
-      .and("include", "https://www.mercedes-benz.com/en/");
-    cy.get("#ad-1").click();
-  });
 
-  it("on front page ad2", () => {
-    cy.get("#ad-2").should("be.visible");
-    cy.get("#ad-2")
-      .should("have.attr", "href")
-      .and(
-        "include",
-        "https://www.malts.com/en-gb/visit-our-distilleries/lagavulin/"
-      );
-    cy.get("#ad-2").click();
-  });
-
-  it("on single article page ad1", () => {
-    cy.get("#article-1").within(() => {
-      cy.get("#article-title").click();
+  describe("on the index page", () => {
+    it("on front page ad1", () => {
+      cy.get("#ad-1").should("be.visible");
+      cy.get("#ad-1")
+        .should("have.attr", "href")
+        .and("include", "https://www.mercedes-benz.com/en/");
     });
-    cy.get("#ad-1").should("be.visible");
-    cy.get("#ad-1")
-      .should("have.attr", "href")
-      .and("include", "https://www.mercedes-benz.com/en/");
-    cy.get("#ad-1").click();
+
+    it("on front page ad2", () => {
+      cy.get("#ad-2").should("be.visible");
+      cy.get("#ad-2")
+        .should("have.attr", "href")
+        .and(
+          "include",
+          "https://www.malts.com/en-gb/visit-our-distilleries/lagavulin/"
+        );
+    });
+  });
+
+  describe("on a single article page", () => {
+    beforeEach(() => {
+      cy.route({
+        method: "GET",
+        url: "http://localhost:3000/api/articles/1",
+        response: "fixture:single_article.json",
+      });
+      cy.get("#article-1").within(() => {
+        cy.get("#article-title").click();
+      });
+    });
+
+    it("on single article page ad1", () => {
+      cy.get("#ad-1").should("be.visible");
+      cy.get("#ad-1")
+        .should("have.attr", "href")
+        .and("include", "https://www.mercedes-benz.com/en/");
+    });
   });
 });
