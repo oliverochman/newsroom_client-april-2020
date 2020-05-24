@@ -25,14 +25,21 @@ const ArticleList = () => {
     fetchArticleList();
   }, []);
 
-  let filteredArticles =
-    category === ""
-      ? articleList
-      : articleList.filter((article) => {
-          return article.category === category;
+  let filteredArticles = () => {
+    switch (category) {
+      case "":
+        return articleList;
+      case "current":
+        return articleList.filter((article) => {
+          debugger;
+          return Date.now() - Date.parse(article.published_at) < 86400000;
         });
+      default:
+        return articleList.filter((article) => article.category === category);
+    }
+  };
 
-  let articleCards = filteredArticles.map((article) => {
+  let articleCards = filteredArticles().map((article) => {
     return <ArticleCard article={article} />;
   });
 

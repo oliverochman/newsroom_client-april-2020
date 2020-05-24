@@ -57,12 +57,15 @@ describe("Visitor can filter by category", () => {
     cy.get("#article-9").should("not.be.visible");
   });
 
-  it("current successfully", () => {
+  it("current successfully 1", () => {
     cy.clock(Date.parse("2020-05-24 14:15"));
     cy.get("#current").click();
     cy.get("#article-1").should("be.visible");
     cy.get("#article-3").should("be.visible");
     cy.get("#article-2").should("not.be.visible");
+  });
+
+  it("current successfully 2", () => {
     cy.clock(Date.parse("2020-05-25 14:00"));
     cy.visit("/");
     cy.get("#current").click();
