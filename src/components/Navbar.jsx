@@ -29,7 +29,7 @@ const Navbar = () => {
       <Menu color="lightgrey" centered>
         <Menu.Item>
           <NavLink to="/">
-            <Icon name="home" size="big"></Icon>
+            <Icon name="home" size="big" color="blue"></Icon>
           </NavLink>
         </Menu.Item>
         {renderCategories}
