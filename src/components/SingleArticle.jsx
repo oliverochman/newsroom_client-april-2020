@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Placeholder, Grid, Container } from "semantic-ui-react";
 import axios from "axios";
 import Ad from "./Ad";
+import mercedesImg from "../images/mercedesAd.jpg";
 
 const SingleArticle = (props) => {
   const [article, setArticle] = useState({});
@@ -37,7 +38,12 @@ const SingleArticle = (props) => {
           </p>
         </Grid.Row>
         <Grid.Row centered>
-          <Ad type={0} />
+          <Ad
+            link={"https://www.mercedes-benz.com/en/"}
+            id={"ad-1"}
+            img={mercedesImg}
+            alt={"mercedes"}
+          />
         </Grid.Row>
       </Grid>
     </Container>

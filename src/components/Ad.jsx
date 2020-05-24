@@ -1,28 +1,11 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
-import mercedesImg from "../images/mercedesAd.jpg";
-import lagavulinImg from "../images/lagavulinAd.jpg";
 
-const Ad = ({ type }) => {
-  const adList = [
-    {
-      id: "ad-1",
-      href: "https://www.mercedes-benz.com/en/",
-      img: mercedesImg,
-      alt: "mercedes",
-    },
-    {
-      id: "ad-2",
-      href: "https://www.malts.com/en-gb/visit-our-distilleries/lagavulin/",
-      img: lagavulinImg,
-      alt: "lagavulin",
-    },
-  ];
-
+const Ad = ({ link, id, img, alt }) => {
   return (
     <Grid.Row width={3} centered>
-      <a id={adList[type].id} href={adList[type].href}>
-        <img src={adList[type].img} alt={adList[type].alt} />
+      <a id={id} href={link}>
+        <img src={img} alt={alt} />
       </a>
     </Grid.Row>
   );
