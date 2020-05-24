@@ -19,7 +19,7 @@ describe("Visitor can filter by category", () => {
 
   it("entertainment successfully", () => {
     cy.get("#entertainment").click();
-    cy.get("#article-8").should("be.visible");
+    cy.get("#article-10").should("be.visible");
     cy.get("#article-9").should("be.visible");
     cy.get("#article-1").should("not.be.visible");
     cy.get("#article-5").should("not.be.visible");
