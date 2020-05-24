@@ -26,7 +26,6 @@ const ArticleList = () => {
         return articleList;
       case "current":
         return articleList.filter((article) => {
-          debugger;
           return Date.now() - Date.parse(article.published_at) < 86400000;
         });
       default:
