@@ -3,10 +3,9 @@ import axios from "axios";
 import { Grid } from "semantic-ui-react";
 import ArticleCard from "../components/ArticleCard";
 
-const ArticleList = () => {
+const ArticleList = (props) => {
   const [articleList, setArticleList] = useState([]);
-  const path = window.location.pathname;
-  const category = path.substring(path.lastIndexOf("/") + 1);
+  const category = props.match.params.category || "";
 
   useEffect(() => {
     const fetchArticleList = async () => {
