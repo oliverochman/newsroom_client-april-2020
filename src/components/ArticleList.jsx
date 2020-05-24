@@ -6,8 +6,12 @@ import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
 import lagavulinImg from "../images/lagavulinAd.jpg";
 
+
+
 const ArticleList = () => {
   const [articleList, setArticleList] = useState([]);
+  const path = window.location.pathname;
+  const category = path.substring(path.lastIndexOf("/") + 1);
 
   useEffect(() => {
     const fetchArticleList = async () => {
@@ -21,7 +25,14 @@ const ArticleList = () => {
     fetchArticleList();
   }, []);
 
-  let articleCards = articleList.map((article) => {
+  let filteredArticles =
+    category === ""
+      ? articleList
+      : articleList.filter((article) => {
+          return article.category === category;
+        });
+
+  let articleCards = filteredArticles.map((article) => {
     return <ArticleCard article={article} />;
   });
 
