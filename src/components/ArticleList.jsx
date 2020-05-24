@@ -8,10 +8,9 @@ import lagavulinImg from "../images/lagavulinAd.jpg";
 
 
 
-const ArticleList = () => {
+const ArticleList = (props) => {
   const [articleList, setArticleList] = useState([]);
-  const path = window.location.pathname;
-  const category = path.substring(path.lastIndexOf("/") + 1);
+  const category = props.match.params.category || "";
 
   useEffect(() => {
     const fetchArticleList = async () => {
