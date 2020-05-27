@@ -4,8 +4,15 @@ describe('User can purchase a subscription', () => {
 		cy.route({
 			method: "POST",
 			url: "**/subscriptions",
-			response: { message: "Transaction was successful" }
+      response: { message: "Transaction was successful" }
     })
+    cy.route({
+      method: "GET",
+      url: "http://localhost:3000/api/articles",
+      response: "fixture:article_list.json",
+    });
+    cy.visit("/")
+  })
     // cy.route({
     //   method: "POST",
     //   url: "http://localhost:3000/api/auth/*",
@@ -28,10 +35,10 @@ describe('User can purchase a subscription', () => {
     //   cy.get('#password').type('password');
     //   cy.get('Button').contains('Submit').click();
     // });
-    cy.visit("/")
+    
 
     it('by clicking "Buy Subscription" button', () => {
-      cy.get('button').contains('Buy Subscription').click()
+      cy.get('#subscription-link').contains('Buy Subscription').click()
       cy.get('#payment-interface').should('be.visible')
       cy.wait(1000)
       cy.typeInStripeElement("cardnumber", "4242424242424242")
@@ -44,5 +51,5 @@ describe('User can purchase a subscription', () => {
           'Transaction was successful'
         )
     })
-  })
+  
 }) 
