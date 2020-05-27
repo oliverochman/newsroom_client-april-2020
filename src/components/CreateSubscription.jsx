@@ -10,7 +10,7 @@ import Axios from "axios";
 const CreateSubscription = props => {
   //const headers = JSON.parse(localStorage.getItem('J-tockAuth-Storage'))
   const [subscriberStatus, setSubscriberStatus] = useState(false)
-  const [subscriptionMessage, setSubscriptionMessage] = useState("")
+  const [transactionMessage, setTransactionMessage] = useState("")
   const submitPayment = async () => {
     const stripeResponse = await props.stripe.createToken()
 
@@ -21,18 +21,29 @@ const CreateSubscription = props => {
       )
       if (paymentStatus.status === 200) {
         setSubscriberStatus(true)
-        setSubscriptionMessage(paymentStatus.data.message)
+        setTransactionMessage(paymentStatus.data.message)
+        setTimeout(() => {
+          setTransactionMessage("")
+        }, 2000)
       }
     } catch (error) {
       console.log(error)
     }
   };
 
+
+
   return (
     <>
     {subscriberStatus ?
-      <span id="subscription-message">
-      {subscriptionMessage}</span>
+      (
+        <>
+          <h2 id="transaction-message" style={{color: "black"}}>
+            {transactionMessage}
+          </h2>
+          <h1 id="subscriber-message" style={{color: "black"}}>You are a subscriber!</h1>
+        </>
+      )
       :
       <div id="payment-interface">
         <CardNumberElement id="cardnumber" />
