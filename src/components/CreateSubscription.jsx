@@ -31,28 +31,26 @@ const CreateSubscription = props => {
     }
   };
 
-
-
   return (
     <>
-    {subscriberStatus ?
-      (
-        <>
-          <h2 id="transaction-message" style={{color: "black"}}>
-            {transactionMessage}
-          </h2>
-          <h1 id="subscriber-message" style={{color: "black"}}>You are a subscriber!</h1>
-        </>
-      )
-      :
-      <div id="payment-interface">
-        <CardNumberElement id="cardnumber" />
-        <CardExpiryElement id="exp-date" />
-        <CardCVCElement id="cvc" />
-        <button onClick={submitPayment}>Submit</button>
-      </div>
-    }
-  </>
+      {subscriberStatus ?
+        (
+          <>
+            <h2 id="transaction-message" style={{color: "black"}}>
+              {transactionMessage}
+            </h2>
+            <h1 id="subscriber-message" style={{color: "black"}}>You are a subscriber!</h1>
+          </>
+        )
+        :
+        <div id="payment-interface">
+          <CardNumberElement id="cardnumber" />
+          <CardExpiryElement id="exp-date" />
+          <CardCVCElement id="cvc" />
+          <button onClick={submitPayment}>Submit</button>
+        </div>
+      }
+    </>
   );
 };
 
