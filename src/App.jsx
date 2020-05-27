@@ -4,6 +4,9 @@ import ArticleList from "./components/ArticleList";
 import Header from "./components/Header";
 import SingleArticle from "./components/SingleArticle";
 import Navbar from "./components/Navbar";
+import CreateSubscription from "./components/CreateSubscription";
+
+
 
 function App() {
   return (
@@ -14,6 +17,7 @@ function App() {
         <Route exact path="/" component={ArticleList}></Route>
         <Route exact path="/article/:id" component={SingleArticle}></Route>
         <Route exact path="/category/:category" component={ArticleList}></Route>
+        <Route exact path="/subscription"component={CreateSubscription}></Route>
       </Switch>
     </>
   );
