@@ -35,6 +35,10 @@ const CreateSubscription = props => {
 
   return (
     <div className="payment-container">
+      <SubscriptionOption>
+        <h2 id="1Month">Subscribe for 1 Month for only $10!</h2>
+        <h2 id="12Month">Subscribe for 12 Months for only $80!</h2>
+      </SubscriptionOption>
 
       {subscriberStatus ?
         (

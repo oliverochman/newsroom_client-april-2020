@@ -36,10 +36,18 @@ describe('User can purchase a subscription', () => {
     //   cy.get('Button').contains('Submit').click();
     // });
     
-
-  it('by clicking "Subscribe" button and making transaction', () => {
+  
+  Describe('Subscribe by clicking "Subscribe" button', () => {
+    beforeEach(() => {
+      
+    }
+    )
     cy.get('#subscription-link').contains('Subscribe').click()
     cy.get('#payment-interface').should('be.visible')
+
+    it('by clicking "Subscribe" button', () => { 
+
+    })
     cy.wait(1000)
     cy.typeInStripeElement("cardnumber", "4242424242424242")
     cy.typeInStripeElement("exp-date", "12/21")
