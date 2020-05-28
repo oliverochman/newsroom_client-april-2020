@@ -39,7 +39,6 @@ describe('User can purchase a subscription on the subscribe page', () => {
     
   
   describe('Successfully', () => {
-
     it('By filling up subscription and payment form', () => {
     cy.get('[type="radio"]').first().check()
     cy.get('#payment-interface').should('be.visible')
@@ -47,11 +46,27 @@ describe('User can purchase a subscription on the subscribe page', () => {
     cy.typeInStripeElement("cardnumber", "4242424242424242")
     cy.typeInStripeElement("exp-date", "12/21")
     cy.typeInStripeElement("cvc", "717")
-    cy.get('button').contains('Submit').click()
+    cy.get('button').contains('Confirm Payment').click()
     cy.get('#transaction-message').should('contain','Transaction was successful')
     cy.wait(2000)
     cy.get('#transaction-message').should('not.be.visible')
     cy.get('#subscriber-message').should('contain','You are a subscriber!')
+    })
+  })
+
+  describe('User can choose', () => {
+    it('between options', () => {
+      cy.get('#monthly').check()
+      cy.get('#monthly').should('be.checked')
+      cy.get('#yearly').check()
+      cy.get('#yearly').should('be.checked')
+    })
+
+    it('only one option', () => {
+      cy.get('#monthly').check()
+      cy.get('#monthly').should('be.checked')
+      cy.get('#yearly').check()
+      cy.get('#monthly').should('not.be.checked')
     })
   })
 }) 

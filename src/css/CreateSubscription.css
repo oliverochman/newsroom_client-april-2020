@@ -7,17 +7,21 @@
 }
 
 #payment-interface {
-  width: 45vw;
   background-color: #409d9b;
 }
 
-#payment-interface > div {
-  display: flex;
-  justify-content: space-evenly;
+#payment-interface > .ui.grid {
+  width: 400px;
 }
 
-#payment-interface >div>div.ui.segment {
-  width: 60px
+.ui.input > * {
+  margin-right: 5px !important;
+}
+
+#payment-interface > .button-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
 }
 
 .messages {
