@@ -30,6 +30,14 @@ describe("successfully", () => {
         uid: "user@mail.com",
       },
     });
+    cy.route({
+      method: "DELETE",
+      url: "http://localhost:3000/api/auth/*",
+      response: "fixture:logout.json",
+      headers: {
+        uid: "user@mail.com",
+      },
+    });
     cy.visit("/");
     cy.get("button#login").click();
     cy.get("#login-form").within(() => {
@@ -54,6 +62,11 @@ describe("successfully", () => {
     cy.get("#article-3-body").then((text) => {
       text.length >= 300;
     });
+  });
+  it("clicking the Log out button", () => {
+    cy.get("#logout").click();
+    cy.get("#logout").should("not.exist");
+    expect("#article-1").to.exist;
   });
 });
 
@@ -81,56 +94,5 @@ describe("unsuccessfully", () => {
       "contain",
       "Invalid login credentials. Please try again."
     );
-  });
-
-  describe("and can end his/her session", () => {
-    beforeEach(() => {
-      cy.visit("/sign_in");
-      cy.server();
-      cy.route({
-        method: "POST",
-        url: "http://localhost:3000/api/auth/*",
-        response: "fixture:successful_login.json",
-        headers: {
-          uid: "user@mail.com",
-        },
-      });
-      cy.route({
-        method: "GET",
-        url: "http://localhost:3000/api/auth/*",
-        response: "fixture:successful_login.json",
-        headers: {
-          uid: "user@mail.com",
-        },
-      });
-      cy.route({
-        method: "DELETE",
-        url: "http://localhost:3000/api/auth/*",
-        response: "fixture:logout.json",
-        headers: {
-          uid: "user@mail.com",
-        },
-      });
-      cy.route({
-        method: "GET",
-        url: "http://localhost:3000/api/articles",
-        response: "fixture:article_list.json",
-      });
-      cy.get("#login-form").within(() => {
-        cy.get("#email").type("user@mail.com");
-        cy.get("#password").type("password");
-        cy.get("Button").contains("Submit").click();
-      });
-    });
-
-    it("clicking the Log out button", () => {
-      cy.get("#logout").contains("Logout").click();
-      cy.get("#logout").should("not.exist");
-    });
-
-    it("and is redirected to login page", () => {
-      cy.get("#logout").contains("Logout").click();
-      expect("#article-1").to.exist;
-    });
   });
 });
