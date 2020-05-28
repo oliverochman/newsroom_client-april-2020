@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon, Button } from "semantic-ui-react";
 import "../css/PremiumBlocker.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const PremiumBlocker = () => {
   return (
