@@ -32,7 +32,7 @@ const Navbar = () => {
         secondary
         widths="10"
         color="grey"
-        boderless
+        borderless
         stackable
       >
         <Menu.Item>

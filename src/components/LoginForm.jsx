@@ -18,7 +18,7 @@ const LoginForm = (props) => {
       if (response.success) {
         props.setUid(response.data.uid);
         props.setAuthenticated(true);
-        history.push("/");
+        history.goBack();
       }
     } catch (error) {
       setMessage(error.response.data.errors[0]);

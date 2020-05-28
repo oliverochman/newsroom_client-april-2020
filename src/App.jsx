@@ -21,7 +21,9 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={ArticleList}></Route>
         <Route exact path="/article/:id" render={() => (
-          <SingleArticle authenticated={authenticated} />
+          <SingleArticle 
+          authenticated={authenticated} 
+          />
         )}></Route>
         <Route exact path="/category/:category" component={ArticleList}></Route>
         <Route
