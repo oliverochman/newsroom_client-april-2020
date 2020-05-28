@@ -1,6 +1,6 @@
 import React from "react";
 import { Placeholder, Grid } from "semantic-ui-react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const ArticleCard = ({ article }) => {
   return (

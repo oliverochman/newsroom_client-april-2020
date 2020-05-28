@@ -4,18 +4,21 @@ import axios from "axios";
 import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
 import PremiumBlocker from "./PremiumBlocker"
+import { useParams } from "react-router-dom";
 import '../css/article.css'
+
 
 const SingleArticle = (props) => {
   const [article, setArticle] = useState({});
+  const { id } = useParams();
 
   useEffect(() => {
     const chooseArticle = async () => {
-      let response = await axios.get(`/articles/${props.match.params.id}`);
+      let response = await axios.get(`/articles/${id}`);
       setArticle(response.data.article);
     };
     chooseArticle();
-  }, []);
+  },[]);
 
   return (
     <Container align="center" style={{ paddingTop: "45px", width: "55%" }}>
@@ -48,7 +51,7 @@ const SingleArticle = (props) => {
             className="article-body"
           >
             {article.body}
-            {article.premium && <PremiumBlocker />}
+            {article.premium && !props.authenticated && <PremiumBlocker />}
           </p>
         </Grid.Row>
         <Grid.Row centered>
