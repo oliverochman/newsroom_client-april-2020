@@ -1,0 +1,23 @@
+.payment-container {
+  height: 60vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#payment-interface {
+  width: 35vw;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  height: 20vh;
+}
+
+.messages > * {
+  color: black;
+}
