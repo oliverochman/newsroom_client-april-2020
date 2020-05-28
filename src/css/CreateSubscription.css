@@ -7,13 +7,17 @@
 }
 
 #payment-interface {
-  width: 35vw;
+  width: 45vw;
   background-color: #409d9b;
 }
 
 #payment-interface > div {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+}
+
+#payment-interface >div>div.ui.segment {
+  width: 60px
 }
 
 .messages {
@@ -27,3 +31,4 @@
 .messages > * {
   color: black;
 }
+

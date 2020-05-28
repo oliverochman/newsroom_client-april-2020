@@ -46,7 +46,7 @@ const CreateSubscription = props => {
           </div>
         )
         :
-<Segment inverted id="payment-interface">
+      <Segment inverted id="payment-interface">
       <h3>Subscription Options</h3>
           <div id="subscription-option">
             
@@ -62,6 +62,7 @@ const CreateSubscription = props => {
           <Segment>
             <CardNumberElement id="cardnumber" />
           </Segment>
+          <div>
           <label htmlFor="exp-date">Expiry date</label>
           <Segment>
             <CardExpiryElement id="exp-date" />
@@ -69,7 +70,8 @@ const CreateSubscription = props => {
           <label htmlFor="cvc">CVC</label>
           <Segment>
             <CardCVCElement id="cvc" />
-          </Segment>
+            </Segment>
+            </div>
           <div>
             <Button basic inverted onClick={submitPayment}>Submit</Button>
           </div>
