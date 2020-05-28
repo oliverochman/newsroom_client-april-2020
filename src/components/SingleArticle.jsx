@@ -4,7 +4,7 @@ import axios from "axios";
 import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
 import PremiumBlocker from "./PremiumBlocker"
-import '../css/Article.css'
+import '../css/article.css'
 
 const SingleArticle = (props) => {
   const [article, setArticle] = useState({});

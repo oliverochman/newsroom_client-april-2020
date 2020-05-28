@@ -5,7 +5,7 @@ import ArticleCard from "../components/ArticleCard";
 import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
 import lagavulinImg from "../images/lagavulinAd.jpg";
-import '../css/Article.css'
+import '../css/article.css'
 
 const ArticleList = (props) => {
   const [articleList, setArticleList] = useState([]);
