@@ -8,6 +8,12 @@
 
 #payment-interface {
   width: 35vw;
+  background-color: #409d9b;
+}
+
+#payment-interface > div {
+  display: flex;
+  justify-content: center;
 }
 
 .messages {

@@ -7,7 +7,7 @@ import {
 } from "react-stripe-elements";
 import Axios from "axios";
 import '../css/CreateSubscription.css'
-import { Segment } from "semantic-ui-react";
+import { Segment, Button } from "semantic-ui-react";
 
 const CreateSubscription = props => {
   //const headers = JSON.parse(localStorage.getItem('J-tockAuth-Storage'))
@@ -46,7 +46,7 @@ const CreateSubscription = props => {
           </div>
         )
         :
-        <div id="payment-interface">
+        <Segment inverted id="payment-interface">
           <label htmlFor="cardnumber">Card number</label>
           <Segment>
             <CardNumberElement id="cardnumber" />
@@ -59,8 +59,10 @@ const CreateSubscription = props => {
           <Segment>
             <CardCVCElement id="cvc" />
           </Segment>
-          <button onClick={submitPayment}>Submit</button>
-        </div>
+          <div>
+            <Button basic inverted onClick={submitPayment}>Submit</Button>
+          </div>
+        </Segment>
       }
     </div>
   );
