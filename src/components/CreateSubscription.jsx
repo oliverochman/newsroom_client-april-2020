@@ -53,7 +53,7 @@ const CreateSubscription = (props) => {
                   name="option"
                   value="monthly"
                 ></Input>
-                <label htmlFor="monthly">1 Month for only $10!</label>
+                <label htmlFor="monthly">1 Month for only <strong>$10!</strong></label>
               </Grid.Column>
               <Grid.Column width={8}>
                 <Input
@@ -62,9 +62,10 @@ const CreateSubscription = (props) => {
                   name="option"
                   value="yearly"
                 ></Input>
-                <label htmlFor="yearly">12 Months for only $80!</label>
+                <label htmlFor="yearly">12 Months for only <strong>$80!</strong></label>
               </Grid.Column>
             </Grid.Row>
+            <p><em>Subscription continues until cancelled. When a subscriber cancels his/her subscription it continues until the chosen period of time has ended. Billing will recur monthly.</em></p>
             <Grid.Row>
               <Grid.Column width={16}>
                 <label htmlFor="cardnumber">Card number</label>
