@@ -20,7 +20,9 @@ const App = () => {
       <Navbar />
       <Switch>
         <Route exact path="/" component={ArticleList}></Route>
-        <Route exact path="/article/:id" component={SingleArticle}></Route>
+        <Route exact path="/article/:id" render={() => (
+          <SingleArticle authenticated={authenticated} />
+        )}></Route>
         <Route exact path="/category/:category" component={ArticleList}></Route>
         <Route
           exact
