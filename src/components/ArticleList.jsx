@@ -5,6 +5,7 @@ import ArticleCard from "../components/ArticleCard";
 import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
 import lagavulinImg from "../images/lagavulinAd.jpg";
+import '../css/article.css'
 
 
 

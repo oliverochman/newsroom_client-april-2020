@@ -5,6 +5,8 @@ import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
 import PremiumBlocker from "./PremiumBlocker"
 import { useParams } from "react-router-dom";
+import '../css/article.css'
+
 
 const SingleArticle = (props) => {
   const [article, setArticle] = useState({});
@@ -22,13 +24,14 @@ const SingleArticle = (props) => {
     <Container align="center" style={{ paddingTop: "45px", width: "55%" }}>
       <Grid stretched>
         <Grid.Row centered>
-          <Placeholder
-            style={{ height: 250, width: 900 }}
-            key={article.id}
-            id={"article-" + article.id + "-title"}
-          >
-            <Placeholder.Image />
-            <h5 style={{ textAlign: "center" }}>{article.title}</h5>
+          <Placeholder>
+            <Placeholder.Image 
+              style={{ height: 200, width: 400, textAlign: "left" }}
+              key={article.id}
+              id={"article-" + article.id + "-title"}
+            >
+              <h5 className="article-title">{article.title}</h5>
+            </Placeholder.Image>
           </Placeholder>
         </Grid.Row>
         <Grid.Row centered>
@@ -45,6 +48,7 @@ const SingleArticle = (props) => {
             key={article.id}
             id={"article-" + article.id + "-body"}
             style={{ textAlign: "left" }}
+            className="article-body"
           >
             {article.body}
             {article.premium && !props.authenticated && <PremiumBlocker />}

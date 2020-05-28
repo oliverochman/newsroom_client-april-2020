@@ -5,24 +5,21 @@ import { Link } from "react-router-dom";
 const ArticleCard = ({ article }) => {
   return (
     <Grid.Row width={3} centered>
-      <Placeholder
-        fluid
-        style={{ height: 300, width: 600 }}
+      <Link
+        to={{
+          pathname: `/article/${article.id}`
+        }}
         key={article.id}
         id={"article-" + article.id}
-      >
-        <Placeholder.Image />
-
-        <Link
-          to={{
-            pathname: `/article/${article.id}`,
-          }}
-        >
-          <h5 id="article-title" style={{ textAlign: "center" }}>
-            {article.title}
-          </h5>
-        </Link>
-      </Placeholder>
+      > 
+        <Placeholder>
+          <Placeholder.Image 
+            style={{ height: 200, width: 400 }}
+          >
+            <h5 className="article-title">{article.title}</h5>
+          </Placeholder.Image>
+        </Placeholder>
+      </Link>
     </Grid.Row>
   );
 };
