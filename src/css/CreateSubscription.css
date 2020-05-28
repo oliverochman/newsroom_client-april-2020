@@ -12,12 +12,9 @@
 }
 
 #payment-interface > div {
+  margin: 20px;
   display: flex;
   justify-content: space-evenly;
-}
-
-#payment-interface >div>div.ui.segment {
-  width: 60px
 }
 
 .messages {
