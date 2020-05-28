@@ -52,7 +52,7 @@ describe("successfully", () => {
   it("can view premium article", () => {
     cy.visit("/article/3");
     cy.get("#article-3-body").then((text) => {
-      text.length >= 100;
+      text.length >= 300;
     });
   });
 });

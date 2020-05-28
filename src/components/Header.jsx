@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Button } from "semantic-ui-react";
 import { Link, useHistory } from "react-router-dom";
 import auth from "../modules/auth.js";
+import "../css/Header.css";
 
 const date = new Date();
 const currentTime = date.getHours();
