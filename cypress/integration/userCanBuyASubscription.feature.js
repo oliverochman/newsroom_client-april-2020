@@ -1,4 +1,4 @@
-describe('User can purchase a subscription', () => {
+describe('User can purchase a subscription on the subscribe page', () => {
   beforeEach(() => {
 		cy.server()
 		cy.route({
@@ -12,6 +12,7 @@ describe('User can purchase a subscription', () => {
       response: "fixture:article_list.json",
     });
     cy.visit("/")
+    cy.get('#subscription-link').contains('Subscribe').click()
   })
     // cy.route({
     //   method: "POST",
@@ -37,36 +38,20 @@ describe('User can purchase a subscription', () => {
     // });
     
   
-  Describe('Subscribe by clicking "Subscribe" button', () => {
-    beforeEach(() => {
-      
-    }
-    )
-    cy.get('#subscription-link').contains('Subscribe').click()
+  describe('Successfully', () => {
+
+    it('By filling up subscription and payment form', () => {
+    cy.get('[type="radio"]').first().check()
     cy.get('#payment-interface').should('be.visible')
-
-    it('by clicking "Subscribe" button', () => { 
-
-    })
     cy.wait(1000)
     cy.typeInStripeElement("cardnumber", "4242424242424242")
     cy.typeInStripeElement("exp-date", "12/21")
     cy.typeInStripeElement("cvc", "717")
     cy.get('button').contains('Submit').click()
-    cy.get('#transaction-message')
-      .should(
-        'contain', 
-        'Transaction was successful'
-      )
+    cy.get('#transaction-message').should('contain','Transaction was successful')
     cy.wait(2000)
-    cy.get('#transaction-message')
-      .should(
-        'not.be.visible'
-      )
-    cy.get('#subscriber-message')
-      .should(
-        'contain',
-        'You are a subscriber!'
-      )
+    cy.get('#transaction-message').should('not.be.visible')
+    cy.get('#subscriber-message').should('contain','You are a subscriber!')
+    })
   })
 }) 

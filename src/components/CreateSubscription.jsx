@@ -35,10 +35,6 @@ const CreateSubscription = props => {
 
   return (
     <div className="payment-container">
-      <SubscriptionOption>
-        <h2 id="1Month">Subscribe for 1 Month for only $10!</h2>
-        <h2 id="12Month">Subscribe for 12 Months for only $80!</h2>
-      </SubscriptionOption>
 
       {subscriberStatus ?
         (
@@ -50,7 +46,18 @@ const CreateSubscription = props => {
           </div>
         )
         :
-        <Segment inverted id="payment-interface">
+<Segment inverted id="payment-interface">
+      <h3>Subscription Options</h3>
+          <div id="subscription-option">
+            
+          <input type="radio" id="1Month"></input>
+        <label htmlFor="1Month">1 Month for only $10!</label>
+        <input type="radio" id="12Month"></input>
+          <label htmlFor="12Month">12 Months for only $80!</label>
+          
+          
+      </div>
+
           <label htmlFor="cardnumber">Card number</label>
           <Segment>
             <CardNumberElement id="cardnumber" />
