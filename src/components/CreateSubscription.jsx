@@ -54,7 +54,7 @@ const CreateSubscription = (props) => {
           <div className="payment-container">
             <Segment padded inverted id="payment-interface">
               <h3>Become a subscriber today!</h3>
-              <h4>1 month for only $10!</h4>
+              <h4>Only $10 for a lifetime of News!</h4>
               <Grid>
                 <p>
                   <em>subscription ends automatically after 30 days</em>
