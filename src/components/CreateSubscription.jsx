@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   injectStripe,
   CardNumberElement,
@@ -13,6 +13,10 @@ const CreateSubscription = (props) => {
   const headers = JSON.parse(localStorage.getItem('J-tockAuth-Storage'))
   const [subscriberStatus, setSubscriberStatus] = useState(false);
   const [transactionMessage, setTransactionMessage] = useState("");
+  useEffect(() => {
+   
+ })
+
   const submitPayment = async () => {
     const stripeResponse = await props.stripe.createToken();
 
