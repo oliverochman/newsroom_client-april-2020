@@ -10,7 +10,7 @@ import "../css/CreateSubscription.css";
 import { Segment, Button, Grid, Input } from "semantic-ui-react";
 
 const CreateSubscription = (props) => {
-  //const headers = JSON.parse(localStorage.getItem('J-tockAuth-Storage'))
+  const headers = JSON.parse(localStorage.getItem('J-tockAuth-Storage'))
   const [subscriberStatus, setSubscriberStatus] = useState(false);
   const [transactionMessage, setTransactionMessage] = useState("");
   const submitPayment = async () => {
@@ -19,8 +19,8 @@ const CreateSubscription = (props) => {
     try {
       const paymentStatus = await Axios.post(
         "/subscriptions",
-        { stripeToken: stripeResponse.token.id }
-        //{ headers: headers }
+        { stripeToken: stripeResponse.token.id },
+        { headers: headers }
       );
       if (paymentStatus.status === 200) {
         setSubscriberStatus(true);
@@ -43,29 +43,10 @@ const CreateSubscription = (props) => {
         </div>
       ) : (
         <Segment padded inverted id="payment-interface">
-          <h3>Subscription Options</h3>
+          <h3>Become a subscriber today!</h3>
+          <h4>1 month for only $10!</h4>
           <Grid>
-            <Grid.Row>
-              <Grid.Column width={8}>
-                <Input
-                  type="radio"
-                  id="monthly"
-                  name="option"
-                  value="monthly"
-                ></Input>
-                <label htmlFor="monthly">1 Month for only <strong>$10!</strong></label>
-              </Grid.Column>
-              <Grid.Column width={8}>
-                <Input
-                  type="radio"
-                  id="yearly"
-                  name="option"
-                  value="yearly"
-                ></Input>
-                <label htmlFor="yearly">12 Months for only <strong>$80!</strong></label>
-              </Grid.Column>
-            </Grid.Row>
-            <p><em>Subscription continues until cancelled. When a subscriber cancels his/her subscription it continues until the chosen period of time has ended. Billing will recur monthly.</em></p>
+            <p><em>subscription ends automatically after 30 days</em></p>
             <Grid.Row>
               <Grid.Column width={16}>
                 <label htmlFor="cardnumber">Card number</label>
