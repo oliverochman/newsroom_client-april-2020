@@ -1,20 +1,26 @@
 .payment-container {
-  height: 60vh;
   width: 100vw;
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-top: 10vh;
 }
 
 #payment-interface {
-  width: 45vw;
   background-color: #409d9b;
 }
 
-#payment-interface > div {
-  margin: 20px;
+#payment-interface > .ui.grid {
+  width: 400px;
+}
+
+.ui.input > * {
+  margin-right: 5px !important;
+}
+
+#payment-interface > .button-div {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  margin-top: 25px;
 }
 
 .messages {
@@ -29,3 +35,6 @@
   color: black;
 }
 
+p {
+  font-size: smaller;
+}
