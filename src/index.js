@@ -6,7 +6,7 @@ import "semantic-ui-css/semantic.min.css";
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 import { StripeProvider } from 'react-stripe-elements'
-import "./css/Index.css";
+import "./css/index.css";
 
 axios.defaults.baseURL = "http://localhost:3000/api";
 
