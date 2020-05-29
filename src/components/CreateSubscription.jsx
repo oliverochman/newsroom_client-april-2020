@@ -13,9 +13,7 @@ const CreateSubscription = (props) => {
   const headers = JSON.parse(localStorage.getItem('J-tockAuth-Storage'))
   const [subscriberStatus, setSubscriberStatus] = useState(false);
   const [transactionMessage, setTransactionMessage] = useState("");
-  useEffect(() => {
-   
- })
+  
 
   const submitPayment = async () => {
     const stripeResponse = await props.stripe.createToken();
@@ -29,12 +27,16 @@ const CreateSubscription = (props) => {
       if (paymentStatus.status === 200) {
         setSubscriberStatus(true);
         setTransactionMessage(paymentStatus.data.message);
+        
         setTimeout(() => {
           setTransactionMessage("");
         }, 4000);
       }
-    } catch (error) {
-      console.log(error);
+    
+    } catch (error) { 
+      debugger
+      setTransactionMessage(error.response.data.message)
+         console.log(error);
     }
   };
 
@@ -76,8 +78,9 @@ const CreateSubscription = (props) => {
           </Grid>
           <div className="button-div">
             <Button basic inverted onClick={submitPayment}>
-              Confirm Payment
+                Confirm Payment
             </Button>
+              <h4 id='error-message'>{transactionMessage}</h4>
           </div>
         </Segment>
       )}

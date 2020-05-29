@@ -1,11 +1,7 @@
 describe('User can purchase a subscription on the subscribe page', () => {
   beforeEach(() => {
 		cy.server()
-		cy.route({
-			method: "POST",
-			url: "**/subscriptions",
-      response: { message: "Transaction was successful" }
-    })
+		
     cy.route({
       method: "GET",
       url: "http://localhost:3000/api/articles",
@@ -39,6 +35,13 @@ describe('User can purchase a subscription on the subscribe page', () => {
   
   
   describe('Successfully', () => {
+    beforeEach(() => {
+      cy.route({
+        method: "POST",
+        url: "**/subscriptions",
+        response: { message: "Transaction was successful" }
+      })
+    })
     it('By filling up subscription and payment form', () => {
     cy.get('#payment-interface').should('be.visible')
     cy.wait(1000)
@@ -51,5 +54,24 @@ describe('User can purchase a subscription on the subscribe page', () => {
     cy.get('#transaction-message').should('not.be.visible')
     cy.get('#subscriber-message').should('contain','You are a subscriber!')
     })
+  })
+
+  describe('Unsuccessfully', () => {
+    beforeEach(() => {
+      cy.route({
+        method: "POST",
+        url: "**/subscriptions",
+        response: { message: "An error has occured!" }, status: 400
+      })
+    })
+    it('Display error message', () => {
+  cy.get('#payment-interface').should('be.visible')
+    cy.wait(1000)
+    cy.typeInStripeElement("cardnumber", "4242424242424242")
+    cy.typeInStripeElement("exp-date", "12/21")
+    cy.typeInStripeElement("cvc", "123")
+    cy.get('button').contains('Confirm Payment').click()
+    cy.get('#error-message').should('contain','An error has occured!')
+  })
   })
 }) 
