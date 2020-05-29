@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Placeholder, Grid, Container } from "semantic-ui-react";
+import { Grid, Container, Image } from "semantic-ui-react";
 import axios from "axios";
 import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
@@ -24,15 +24,15 @@ const SingleArticle = (props) => {
     <Container align="center" style={{ paddingTop: "45px", width: "55%" }}>
       <Grid stretched>
         <Grid.Row centered>
-          <Placeholder>
-            <Placeholder.Image 
+            <Image 
+              src={article.image}
               style={{ height: 200, width: 400, textAlign: "left" }}
               key={article.id}
               id={"article-" + article.id + "-title"}
             >
               <h5 className="article-title">{article.title}</h5>
-            </Placeholder.Image>
-          </Placeholder>
+            </Image>
+         
         </Grid.Row>
         <Grid.Row centered>
           <p
