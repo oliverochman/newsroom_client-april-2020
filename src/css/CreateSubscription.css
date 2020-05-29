@@ -38,3 +38,15 @@
 p {
   font-size: smaller;
 }
+
+#error-message{
+  color: crimson; 
+  text-align: center;
+  margin-top: 20px;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}

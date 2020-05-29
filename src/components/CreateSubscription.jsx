@@ -34,20 +34,23 @@ const CreateSubscription = (props) => {
       }
     
     } catch (error) { 
-      debugger
+      
       setTransactionMessage(error.response.data.message)
          console.log(error);
     }
   };
 
   return (
-    <div className="payment-container">
+    <div className="container">
       {subscriberStatus ? (
         <div className="messages">
           <h2 id="transaction-message">{transactionMessage}</h2>
           <h1 id="subscriber-message">You are a subscriber!</h1>
         </div>
       ) : (
+          <>
+          <h4 id='error-message'>{transactionMessage}</h4>
+          <div className='payment-container'>
         <Segment padded inverted id="payment-interface">
           <h3>Become a subscriber today!</h3>
           <h4>1 month for only $10!</h4>
@@ -80,10 +83,13 @@ const CreateSubscription = (props) => {
             <Button basic inverted onClick={submitPayment}>
                 Confirm Payment
             </Button>
-              <h4 id='error-message'>{transactionMessage}</h4>
+              
           </div>
-        </Segment>
+            </Segment>
+            </div>
+            </>
       )}
+
     </div>
   );
 };
