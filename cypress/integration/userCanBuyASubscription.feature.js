@@ -52,7 +52,7 @@ describe("User can purchase a subscription on the subscribe page", () => {
       cy.typeInStripeElement("exp-date", "12/21");
       cy.typeInStripeElement("cvc", "123");
       cy.get("button").contains("Confirm Payment").click();
-      cy.get("#error-message").should(
+      cy.get(".error-message").should(
         "contain",
         "There was a problem with your transaction"
       );
@@ -65,7 +65,7 @@ describe("User can purchase a subscription on the subscribe page", () => {
       cy.typeInStripeElement("cardnumber", "4242424242424242");
       cy.typeInStripeElement("exp-date", "12/10");
       cy.get("button").contains("Confirm Payment").click();
-      cy.get("#error-message").should(
+      cy.get(".error-message").should(
         "contain",
         "Your card's expiration year is in the past."
       );

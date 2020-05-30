@@ -5,9 +5,6 @@ import Header from "./components/Header";
 import SingleArticle from "./components/SingleArticle";
 import Navbar from "./components/Navbar";
 import CreateSubscription from "./components/CreateSubscription";
-import { Elements } from 'react-stripe-elements'
-
-
 import LoginForm from "./components/LoginForm";
 
 const App = () => {
@@ -31,9 +28,7 @@ const App = () => {
         )}></Route>
         <Route exact path="/category/:category" component={ArticleList}></Route>
         <Route exact path="/subscription" render={() => (
-            <Elements>
-              <CreateSubscription />
-            </Elements>
+            <CreateSubscription authenticated={authenticated}/>
           )}
         ></Route>
         <Route
