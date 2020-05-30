@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { Segment, Button, Grid } from "semantic-ui-react";
 import {
   injectStripe,
@@ -8,18 +8,17 @@ import {
 } from "react-stripe-elements";
 
 const PaymentInterface = (props) => {
-  const [stripeTokenError, setStripeTokenError] = useState("")
+  const [stripeTokenError, setStripeTokenError] = useState("");
 
   const createStripeToken = async () => {
     const stripeResponse = await props.stripe.createToken();
-  
+
     if (stripeResponse.error) {
       setStripeTokenError(stripeResponse.error.message);
     } else {
-      debugger
-      props.submitPayment(stripeResponse)
+      props.submitPayment(stripeResponse);
     }
-  }
+  };
 
   return (
     <div className="payment-container">
@@ -61,7 +60,7 @@ const PaymentInterface = (props) => {
         </div>
       </Segment>
     </div>
-  )
-}
+  );
+};
 
 export default injectStripe(PaymentInterface);
