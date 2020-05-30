@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Grid, Button, Form, Input } from "semantic-ui-react";
 import auth from "../modules/auth";
 import { useHistory } from "react-router-dom";
-import "../css/index.css";
 import { Link } from "react-router-dom";
 
 const LoginForm = (props) => {
@@ -24,6 +23,17 @@ const LoginForm = (props) => {
       setMessage(error.response.data.errors[0]);
     }
   };
+  const signUp_message =
+    props.uid === "" ? (
+      <p>
+        Don't have an account?<br></br>
+        <Link id="signup" name="Signup" to={{ pathname: "/sign_up" }}>
+          Click here to sign up.
+        </Link>
+      </p>
+    ) : (
+      <p>signed up sucessfully {props.Uid}</p>
+    );
   return (
     <>
       <Grid className="login-container" verticalAlign="middle">
@@ -38,12 +48,7 @@ const LoginForm = (props) => {
             <br></br>
             <Button id="submit">Submit</Button>
             <br></br>
-            <p>
-              Don't have an account?<br></br>{" "}
-              <Link name="Signup" to={{ pathname: "/sign_up" }}>
-                Click here to sign up.
-              </Link>
-            </p>
+            {signUp_message}
           </Form>
         </Grid.Column>
       </Grid>
