@@ -29,12 +29,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
+  align-items: center;
   height: 20vh;
+  margin-top: 10vh;
 }
 
 .messages > * {
-  color: black;
+  color: #409d9b
 }
 
 p {
@@ -51,4 +52,9 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.button-segment {
+  width: fit-content;
+  background-color: #409d9b !important
 }

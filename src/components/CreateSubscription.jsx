@@ -3,6 +3,8 @@ import Axios from "axios";
 import "../css/CreateSubscription.css";
 import PaymentInterface from "./PaymentInterface";
 import { Elements } from 'react-stripe-elements'
+import { Link } from "react-router-dom";
+import { Button, Segment } from "semantic-ui-react"
 
 const CreateSubscription = (props) => {
   const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
@@ -32,18 +34,29 @@ const CreateSubscription = (props) => {
 
   return (
     <div className="container">
-      {subscriberStatus ? (
-        <div className="messages">
-          <h2 id="transaction-message">{transactionMessage}</h2>
-          <h1 id="subscriber-message">You are a subscriber!</h1>
-        </div>
+      {props.authenticated ?
+        (subscriberStatus ? (
+          <div className="messages">
+            <h2 id="transaction-message">{transactionMessage}</h2>
+            <h1 id="subscriber-message">You are a subscriber!</h1>
+          </div>
+        ) : (
+          <>
+            <h4 className="error-message">{transactionMessage}</h4>
+            <Elements>
+              <PaymentInterface submitPayment={submitPayment}/>
+            </Elements>
+          </>
+        )
       ) : (
-        <>
-          <h4 className="error-message">{transactionMessage}</h4>
-          <Elements>
-            <PaymentInterface submitPayment={submitPayment}/>
-          </Elements>
-        </>
+        <div className="messages">
+          <h1 id="subscribe-today">Become a subscriber today!</h1>
+          <Link name="Login" to={{ pathname: "/sign_in" }}>
+            <Segment inverted className="button-segment">
+              <Button basic inverted id="sign-in-sign-up">Log in or sign up to proceed!</Button>
+            </Segment>
+          </Link>
+        </div>
       )}
     </div>
   );
