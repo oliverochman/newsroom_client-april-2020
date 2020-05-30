@@ -32,7 +32,7 @@ const LoginForm = (props) => {
         </Link>
       </p>
     ) : (
-      <p>signed up sucessfully {props.Uid}</p>
+      <p id="signedup">Signed up sucessfully!</p>
     );
   return (
     <>

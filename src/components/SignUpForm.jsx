@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Grid, Button, Form, Input } from "semantic-ui-react";
 import auth from "../modules/auth";
 import { useHistory } from "react-router-dom";
-// import { Link } from "react-router-dom";
 
 const SignUpForm = (props) => {
   const [message, setMessage] = useState("");
@@ -16,9 +15,10 @@ const SignUpForm = (props) => {
         password: e.target.password.value,
         password_confirmation: e.target.passwordConfirmation.value,
       });
-      props.setUid(response.data.uid);
-      // setMessage(`Signed up successfully as ${props.uid}`);
-      history.push("/sign_in");
+      if (response.data.success) {
+        props.setUid(response.data.uid);
+        history.push("/sign_in");
+      }
     } catch (error) {
       setMessage(error.response.data.errors[0]);
     }
