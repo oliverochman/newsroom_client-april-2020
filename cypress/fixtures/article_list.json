@@ -1,6 +1,6 @@
 {
   "articles": [
-    { "id": 1, "title": "title 1",  "image": "https://picsum.photos/400/300" },
+    { "id": 1, "title": "title 1",  "image": "https://picsum.photos/800/600" },
     { "id": 2, "title": "title 2",  "image": "https://picsum.photos/400/300" },
     { "id": 3, "title": "title 3",  "image": "https://picsum.photos/400/300" },
     { "id": 4, "title": "title 4",  "image": "https://picsum.photos/400/300" },

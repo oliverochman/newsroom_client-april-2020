@@ -7,20 +7,17 @@ const ArticleCard = ({ article }) => {
     <Grid.Row width={3} centered>
       <Link
         to={{
-          pathname: `/article/${article.id}`
+          pathname: `/article/${article.id}`,
         }}
         key={article.id}
         id={"article-" + article.id}
-      > 
-     
-          <Image 
-            src={article.image}
-            wrapped
-            style={{ height: 200, width: 400 }}
-          >
-            <h5 className="article-title">{article.title}</h5>
-          </Image>
-      
+      >
+        <Image
+          src={article.image}
+          wrapped
+          style={{ height: 200, width: 400 }}
+        />
+        <h5 className="article-title">{article.title}</h5>
       </Link>
     </Grid.Row>
   );
