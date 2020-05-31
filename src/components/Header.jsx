@@ -1,9 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Grid, Button } from "semantic-ui-react";
 import { Link, useHistory } from "react-router-dom";
 import auth from "../modules/auth.js";
 import "../css/Header.css";
-import { useTranslation } from "react-i18next";
+
 
 const Header = (props) => {
   const history = useHistory();
@@ -17,9 +18,10 @@ const Header = (props) => {
     }
   };
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const date = new Date();
   const currentTime = date.getHours();
+  
 
   let time;
 
@@ -36,9 +38,9 @@ const Header = (props) => {
       <Grid.Row>
         <Grid.Column>
           <Button.Group id='language'>
-            <Button>EN</Button>
+            <Button onClick={() => {i18n.changeLanguage("en")}}>EN</Button>
             <Button.Or />
-            <Button>SV</Button>
+            <Button onClick={() => {i18n.changeLanguage("sv")}}>SV</Button>
           </Button.Group>
           <h1 id="header" style={{ textAlign: "center" }}>
             <span>D</span>aily <span>N</span>ews <span>S</span>ense

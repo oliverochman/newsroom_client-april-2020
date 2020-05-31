@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 import ArticleList from "./components/ArticleList";
 import Header from "./components/Header";
 import SingleArticle from "./components/SingleArticle";
 import Navbar from "./components/Navbar";
 import LoginForm from "./components/LoginForm";
+
 
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
         uid={uid}
         authenticated={authenticated}
         setAuthenticated={setAuthenticated}
-      >
+      ><Suspense fallback={<div>Loading</div>}/>
       </Header>
       <Navbar />
       <Switch>
