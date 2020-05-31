@@ -6,6 +6,7 @@ import "semantic-ui-css/semantic.min.css";
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 import "./css/Index.css";
+import './i18n';
 
 axios.defaults.baseURL = "http://localhost:3000/api";
 
