@@ -26,10 +26,14 @@ const SingleArticle = (props) => {
           <Image
             src={article.image}
             style={{ height: 200, width: 400, textAlign: "left" }}
+          />
+          <h5
             key={article.id}
             id={"article-" + article.id + "-title"}
-          />
-          <h5 className="article-title">{article.title}</h5>
+            className="article-title"
+          >
+            {article.title}
+          </h5>
         </Grid.Row>
         <Grid.Row centered>
           <p
