@@ -1,8 +1,11 @@
 describe('user can change language', () =>  {
   it('by clicking button', () => {
     cy.visit("/");
-    cy.get("Button").contains("EN/SV").click();
+    cy.get("#language").contains("SV").click();
     cy.wait(2000);
     cy.get("Button#login").contains("Logga In");
+    cy.get("#language").contains("EN").click();
+    cy.wait(2000);
+    cy.get("Button#login").contains("Login");
   });
 })

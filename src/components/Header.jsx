@@ -35,7 +35,7 @@ const Header = (props) => {
     <Grid>
       <Grid.Row>
         <Grid.Column>
-          <Button.Group>
+          <Button.Group id='language'>
             <Button>EN</Button>
             <Button.Or />
             <Button>SV</Button>
