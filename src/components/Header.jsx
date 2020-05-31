@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Button } from "semantic-ui-react";
 import { Link, useHistory } from "react-router-dom";
 import auth from "../modules/auth.js";
-import '../css/Header.css';
+import "../css/Header.css";
 
 const date = new Date();
 const currentTime = date.getHours();
@@ -33,6 +33,11 @@ const Header = (props) => {
     <Grid>
       <Grid.Row>
         <Grid.Column>
+          <Button.Group>
+            <Button>EN</Button>
+            <Button.Or />
+            <Button>SV</Button>
+          </Button.Group>
           <h1 id="header" style={{ textAlign: "center" }}>
             <span>D</span>aily <span>N</span>ews <span>S</span>ense
           </h1>
