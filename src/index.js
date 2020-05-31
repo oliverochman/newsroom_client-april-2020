@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
@@ -12,7 +12,8 @@ axios.defaults.baseURL = "http://localhost:3000/api";
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+  <Suspense fallback={<div>Loading</div>} />
+    <App/> 
   </BrowserRouter>,
   document.getElementById("root")
 );

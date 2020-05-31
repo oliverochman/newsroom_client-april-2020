@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react";
+import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import ArticleList from "./components/ArticleList";
 import Header from "./components/Header";
@@ -17,12 +17,9 @@ const App = () => {
         uid={uid}
         authenticated={authenticated}
         setAuthenticated={setAuthenticated}
-      />
-      <Navbar>
-        <div>
-          <Suspense fallback={<div>Loading</div>} />
-         </div>
-      </Navbar>
+      >
+      </Header>
+      <Navbar />
       <Switch>
         <Route exact path="/" component={ArticleList}></Route>
         <Route exact path="/article/:id" render={() => (

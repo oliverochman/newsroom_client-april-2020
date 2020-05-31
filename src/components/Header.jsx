@@ -3,19 +3,7 @@ import { Grid, Button } from "semantic-ui-react";
 import { Link, useHistory } from "react-router-dom";
 import auth from "../modules/auth.js";
 import "../css/Header.css";
-
-const date = new Date();
-const currentTime = date.getHours();
-
-let time;
-
-if (currentTime < 12) {
-  time = "Morning";
-} else if (currentTime < 18) {
-  time = "Afternoon";
-} else {
-  time = "Evening";
-}
+import { useTranslation } from "react-i18next";
 
 const Header = (props) => {
   const history = useHistory();
@@ -28,6 +16,20 @@ const Header = (props) => {
       console.log(error);
     }
   };
+
+  const { t } = useTranslation();
+  const date = new Date();
+  const currentTime = date.getHours();
+
+  let time;
+
+  if (currentTime < 12) {
+    time = t("Morning");
+  } else if (currentTime < 18) {
+    time = t("Afternoon");
+  } else {
+    time = t("Evening");
+  }
 
   return (
     <Grid>
@@ -45,13 +47,13 @@ const Header = (props) => {
             {!props.authenticated ? (
               <Link name="Login" to={{ pathname: "/sign_in" }}>
                 <Button floated="right" basic inverted id="login">
-                  Login
+                  {t("Login")}
                 </Button>
               </Link>
             ) : (
               <>
                 <p style={{ textAlign: "right" }}>
-                  Good {time} <br></br>
+                  {t("Good")} {time} <br></br>
                   {props.uid}
                 </p>
                 <Link name="Logout" to={{ pathname: "/sign_in" }}>
@@ -62,7 +64,7 @@ const Header = (props) => {
                     id="logout"
                     onClick={() => logout()}
                   >
-                    Logout
+                    {t("Logout")}
                   </Button>
                 </Link>
               </>

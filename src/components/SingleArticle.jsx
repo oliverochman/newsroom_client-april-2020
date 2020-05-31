@@ -6,11 +6,13 @@ import mercedesImg from "../images/mercedesAd.jpg";
 import PremiumBlocker from "./PremiumBlocker"
 import { useParams } from "react-router-dom";
 import '../css/article.css'
+import { useTranslation } from "react-i18next";
 
 
 const SingleArticle = (props) => {
   const [article, setArticle] = useState({});
   const { id } = useParams();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const chooseArticle = async () => {
@@ -40,7 +42,7 @@ const SingleArticle = (props) => {
             id={"article-" + article.id + "-date"}
             style={{ textAlign: "left" }}
           >
-            Published at: {article.published_at}
+            {t('Published at:')} {article.published_at}
           </p>
         </Grid.Row>
         <Grid.Row centered>
