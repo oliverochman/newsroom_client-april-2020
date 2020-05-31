@@ -18,7 +18,7 @@ const Navbar = () => {
 
   let renderCategories = categories.map((cat) => {
     return (
-      <Menu.Item boderless>
+      <Menu.Item borderless>
         <NavLink to={`/category/${cat.toLowerCase()}`} id={cat.toLowerCase()}>
           {cat}
         </NavLink>

@@ -4,6 +4,7 @@ import { Grid, Button } from "semantic-ui-react";
 import { Link, useHistory } from "react-router-dom";
 import auth from "../modules/auth.js";
 import "../css/Header.css";
+import '../i18n'
 
 
 const Header = (props) => {
@@ -34,17 +35,21 @@ const Header = (props) => {
   }
 
   return (
-    <Grid>
+    <Grid columns={3} id='header'>
       <Grid.Row>
         <Grid.Column>
           <Button.Group id='language'>
-            <Button onClick={() => {i18n.changeLanguage("en")}}>EN</Button>
+            <Button basic inverted onClick={() => {i18n.changeLanguage("en")}}>EN</Button>
             <Button.Or />
-            <Button onClick={() => {i18n.changeLanguage("sv")}}>SV</Button>
+            <Button basic inverted onClick={() => {i18n.changeLanguage("sv")}}>SV</Button>
           </Button.Group>
-          <h1 id="header" style={{ textAlign: "center" }}>
+          </Grid.Column>
+          <Grid.Column>
+          <h1 style={{ textAlign: "center" }}>
             <span>D</span>aily <span>N</span>ews <span>S</span>ense
           </h1>
+          </Grid.Column>
+          <Grid.Column>
           <div id="login">
             {!props.authenticated ? (
               <Link name="Login" to={{ pathname: "/sign_in" }}>
