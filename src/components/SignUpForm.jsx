@@ -32,25 +32,14 @@ const SignUpForm = (props) => {
           <Form unstackable id="signup-form" onSubmit={signup}>
             <h1>Sign up</h1>
             <h4>Email</h4>
-            <Input
-              name="email"
-              type="email"
-              id="email"
-              placeholder="email"
-            ></Input>
+            <Input name="email" type="email" id="email"></Input>
             <h4>Password</h4>
-            <Input
-              name="password"
-              type="password"
-              id="password"
-              placeholder="Password"
-            ></Input>
+            <Input name="password" type="password" id="password"></Input>
             <h4>Confirm Password</h4>
             <Input
               name="passwordConfirmation"
               type="password"
               id="passwordConfirmation"
-              placeholder="Confirm password"
             ></Input>
             <br></br>
             <Button id="submit" type="submit">
