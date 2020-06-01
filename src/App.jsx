@@ -4,6 +4,7 @@ import ArticleList from "./components/ArticleList";
 import Header from "./components/Header";
 import SingleArticle from "./components/SingleArticle";
 import Navbar from "./components/Navbar";
+import CreateSubscription from "./components/CreateSubscription";
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 
@@ -27,6 +28,10 @@ const App = () => {
           render={() => <SingleArticle authenticated={authenticated} />}
         ></Route>
         <Route exact path="/category/:category" component={ArticleList}></Route>
+        <Route exact path="/subscription" render={() => (
+            <CreateSubscription authenticated={authenticated}/>
+          )}
+        ></Route>
         <Route
           exact
           path="/sign_in"
