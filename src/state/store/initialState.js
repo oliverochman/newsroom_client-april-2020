@@ -1,2 +1,5 @@
-const initialState = {};
+const initialState = {
+  userCity: "",
+  userCountry: "",
+};
 export default initialState;
