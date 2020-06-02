@@ -9,7 +9,7 @@ describe("visitor can view articles basen on location", () => {
     cy.visit("/");
   });
 
-  it("by visiting the 'local' category", () => {
+  xit("by visiting the 'local' category", () => {
     cy.get('#navbar').should('contain', 'Local')
   })
 
@@ -19,8 +19,8 @@ describe("visitor can view articles basen on location", () => {
     cy.get("#article-2").should("contain", "Title 2");
   });
 
-  it("But without location a message is shown instead" () => {
+  it("But without location a message is shown instead", () => {
     cy.get("#local").click();
-    cy.get('').
+    cy.get('')
   })
 });
