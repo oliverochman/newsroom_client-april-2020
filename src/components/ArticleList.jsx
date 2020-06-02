@@ -6,8 +6,7 @@ import Ad from "./Ad";
 import mercedesImg from "../images/mercedesAd.jpg";
 import lagavulinImg from "../images/lagavulinAd.jpg";
 import '../css/article.css'
-
-
+import { connect } from 'react-redux'
 
 const ArticleList = (props) => {
   const [articleList, setArticleList] = useState([]);
@@ -23,7 +22,14 @@ const ArticleList = (props) => {
       }
     };
     fetchArticleList();
+    getLocation()
   }, []);
+
+  const getLocation =  () => {
+    if (category == "local") {
+      getPlace()
+    }
+  }
 
   let filteredArticles = () => {
     switch (category) {
@@ -63,4 +69,4 @@ const ArticleList = (props) => {
   );
 };
 
-export default ArticleList;
+export default connect()(ArticleList);

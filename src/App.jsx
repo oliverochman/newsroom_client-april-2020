@@ -13,22 +13,6 @@ const App = (props) => {
   const [uid, setUid] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition((location) => {
-
-        location.coords.latitude
-        location.coords.longitude
-
-      props.dispatch({
-        type: "GET_LOCATION",
-        payload: {
-          userCity: 
-          userCountry:
-        },
-      });
-    });
-  }, []);
-
   return (
     <>
       <Header

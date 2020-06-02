@@ -8,9 +8,19 @@ describe("visitor can view articles basen on location", () => {
     });
     cy.visit("/");
   });
+
+  it("by visiting the 'local' category", () => {
+    cy.get('#navbar').should('contain', 'Local')
+  })
+
   it("Local category shows only local news", () => {
     cy.get("#local").click();
     cy.get("#article-1").should("contain", "Title 1");
     cy.get("#article-2").should("contain", "Title 2");
   });
+
+  it("But without location a message is shown instead" () => {
+    cy.get("#local").click();
+    cy.get('').
+  })
 });
