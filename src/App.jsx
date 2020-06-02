@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import ArticleList from "./components/ArticleList";
 import Header from "./components/Header";
@@ -19,7 +19,8 @@ const App = (props) => {
         uid={uid}
         authenticated={authenticated}
         setAuthenticated={setAuthenticated}
-      />
+      ><Suspense fallback={<div>Loading</div>}/>
+      </Header>
       <Navbar />
       <Switch>
         <Route exact path="/" component={ArticleList}></Route>
