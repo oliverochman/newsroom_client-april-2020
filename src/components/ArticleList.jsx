@@ -8,7 +8,6 @@ import lagavulinImg from "../images/lagavulinAd.jpg";
 import '../css/article.css'
 import { connect } from 'react-redux'
 import { getPlace } from '../modules/location'
-import { useTranslation as t } from "react-i18next";
 
 const ArticleList = (props) => {
   const [articleList, setArticleList] = useState([]);
@@ -39,7 +38,7 @@ const ArticleList = (props) => {
           return Date.now() - Date.parse(article.published_at) < 86400000;
         });
       default:
-        return articleList.filter((article) => t(article.category) === category);
+        return articleList.filter((article) => article.category === category);
     }
   };
 
