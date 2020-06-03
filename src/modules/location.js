@@ -1,23 +1,24 @@
 import axios from 'axios'
 
-const getPlace = async (dispatch) => {
-  debugger;
-  const location = await navigator.geolocation.getCurrentPosition(translateLocation)
-  const long = location.coords.longitude;
-  const lat = location.coords.latitude
-  debugger;
-  translateLocation(long, lat , dispatch)
-  
-}
+const getPlace = (dispatch) => {
+  navigator.geolocation.getCurrentPosition(async (location) => {
+    debugger;
+    const apiKey = 'key'
+    const long = location.coords.longitude;
+    const lat = location.coords.latitude
+    const address = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${long}&key=${apiKey}`)
 
-const translateLocation = async (long, lat , dispatch) => {
-  debugger;
-  const apiKey = process.env.OPEN_CAGE_API_KEY
-  const address = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${long}&key=${apiKey}`)
-  debugger;
-  // dispatch({
-
-  // })
+    dispatch({
+      type: 'SET_LOCATION',
+      payload: {
+        location:  {
+          address: address,
+          longitude: long,
+          latitiude: lat
+        }
+      }
+    })
+  })
 }
 
 export { getPlace };

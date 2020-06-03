@@ -11,7 +11,7 @@ import { getPlace } from '../modules/location'
 
 const ArticleList = (props) => {
   const [articleList, setArticleList] = useState([]);
-  const category = props.match.params.category || "";
+  const category = props.match.params.category
 
   useEffect(() => {
     const fetchArticleList = async () => {
@@ -24,10 +24,15 @@ const ArticleList = (props) => {
     };
     fetchArticleList();
     //wrap in try catch?
+    
+  }, []);
+
+  useEffect(() => {
     if (category == "local") {
+      debugger;
       getPlace(props.dispatch)
     }
-  }, []);
+  })
 
   let filteredArticles = () => {
     switch (category) {
